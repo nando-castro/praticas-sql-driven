@@ -13,3 +13,11 @@ SELECT users.name AS writer, COUNT(testimonials.id) AS "testimonialCount" FROM t
 SELECT MAX(jobs.salary) AS "maximumSalary", roles.name AS role FROM jobs JOIN roles ON roles.id = jobs."roleId" AND jobs.active = true GROUP BY roles.name, jobs.active  ORDER BY "maximumSalary" ASC;
 
 -- QUESTÂO BÔNUS --
+SELECT s.name AS school, c.name AS course, COUNT(e.id) AS "studentCount", e.status
+FROM educations e
+JOIN schools s ON s.id = e."schoolId"
+JOIN courses c ON c.id = e."courseId"
+WHERE e.status = 'finished' OR e.status = 'ongoing'
+GROUP BY c.id,s.id,e.status
+ORDER BY "studentCount" DESC
+LIMIT 3;
