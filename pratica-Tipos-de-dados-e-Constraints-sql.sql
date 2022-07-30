@@ -54,7 +54,7 @@ CREATE TABLE "transactions" (
 	"bankAccountId" INTEGER NOT NULL REFERENCES "bankAccount"("id"),
 	"amount" INTEGER NOT NULL DEFAULT 0,
 	"type" TRANSATION_T NOT NULL,
-	"time" TIMESTAMP TIME NOT NULL DEFAULT NOW(),
+	"time" TIMESTAMP NOT NULL DEFAULT NOW(),
 	"description" TEXT,
 	"cancelled" BOOLEAN NOT NULL DEFAULT FALSE
 );
